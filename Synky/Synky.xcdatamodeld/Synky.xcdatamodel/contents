@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19574" systemVersion="20G165" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
+    <entity name="AccountModel" representedClassName="AccountModel" syncable="YES" codeGenerationType="class">
+        <attribute name="index" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="password" optional="YES" attributeType="String"/>
+        <attribute name="username" optional="YES" attributeType="String"/>
+        <relationship name="schedules" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ScheduleModel" inverseName="account" inverseEntity="ScheduleModel"/>
+    </entity>
+    <entity name="ScheduleModel" representedClassName="ScheduleModel" syncable="YES" codeGenerationType="class">
+        <attribute name="direction" attributeType="String" defaultValueString="UP"/>
+        <attribute name="index" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="localPath" optional="YES" attributeType="URI"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="remotePath" optional="YES" attributeType="String"/>
+        <attribute name="type" attributeType="String" defaultValueString="OFF"/>
+        <attribute name="useCellular" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <relationship name="account" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AccountModel" inverseName="schedules" inverseEntity="AccountModel"/>
+        <relationship name="service" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ServiceModel" inverseName="schedules" inverseEntity="ServiceModel"/>
+    </entity>
+    <entity name="ServiceModel" representedClassName="ServiceModel" syncable="YES" codeGenerationType="class">
+        <attribute name="host" optional="YES" attributeType="String"/>
+        <attribute name="index" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="type" attributeType="String" defaultValueString="NONE"/>
+        <relationship name="schedules" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ScheduleModel" inverseName="service" inverseEntity="ScheduleModel"/>
+    </entity>
+    <elements>
+        <element name="AccountModel" positionX="-54" positionY="27" width="128" height="104"/>
+        <element name="ServiceModel" positionX="-63" positionY="0" width="128" height="104"/>
+        <element name="ScheduleModel" positionX="-54" positionY="18" width="128" height="164"/>
+    </elements>
+</model>
